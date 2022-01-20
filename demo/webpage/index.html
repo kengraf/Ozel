@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://html5demos.com/drag -->
+<html lang="en"><script>var urchinTracker=function(){},_gaq={push:function(){try {if(arguments[0][0]=='_link')window.location.href=arguments[0][1]}catch(er){}}},_gat={_getTracker:function(){return{__noSuchMethod__:function(){},_link:function(o){if(o)location.href=o;},_linkByPost:function(){return true;},_getLinkerUrl:function(o){return o;},_trackEvent:function(){}}}}</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=620">
+<title>Ozel Drag and drop</title>
+<link rel="stylesheet" href="./html5demos.css">
+
+</head>
+<body>
+<section id="wrapper">
+</div></p>
+	<center>
+	<a id="ozelLogo" href="http://ozel.unknown/">
+	<img src="./OzelLogo.jpg" width="192" height="140" alt="Ozel: Data Privacy in the Public Cloud">
+	</a>
+	</center>
+
+<style>
+article div {
+  margin: 10px 0;
+}
+
+label {
+  line-height: 32px;
+}
+
+/* for safari */
+*[draggable=true] {
+  -khtml-user-drag: element;
+  cursor: move;
+}
+
+#drop {
+  border: 3px dashed #ccc;
+  padding: 10px;
+  background: #fff;
+/*  min-height: 200px; */
+/*  overflow-y: auto;*/
+}
+
+#drop .info {
+  color: #999;
+  text-align: center;
+}
+
+#drop ul {
+  margin: 0;
+  padding: 0;
+}
+
+#drop li {
+  border-top: 2px solid #ccc;
+  list-style: none;
+  padding: 5px;
+  font-size: 90%;
+}
+
+#drop li:first-child {
+  border-top: 0;
+}
+
+</style>
+
+<article>
+      <section id="drop" ondragenter="OnDragEnter">
+<form id="upload" action="upload.php" method="POST" enctype="multipart/form-data">  
+<div id="dropbox" >
+<input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
+<image id="preview" src="shredder.jpg" alt="[ preview will display here ]" />
+<span id="droplabel"><p class="info">To shred drag and drop item here</p>
+</span>
+</div>
+</form>
+      </section>
+
+
+</article>
+
+
+<script>
+
+var getDataType = document.querySelector('#text');
+
+var dropbox = document.getElementById("drop");
+
+        function OnDrop (evt) {
+	    evt.stopPropagation();
+	    evt.preventDefault();
+	var files = evt.dataTransfer.files;
+	var count = files.length;
+	// Only call the handler if 1 or more files was dropped.
+	if (count > 0)
+		handleFiles(files);
+        }
+        
+        function OnDragEnter (evt) {
+	    evt.stopPropagation();
+	    evt.preventDefault();
+            dropbox.style.border = "3px dashed red";
+	    dropbox.style.opacity = "0.5";
+        }
+        
+        function OnDragLeave (evt) {
+	    evt.stopPropagation();
+	    evt.preventDefault();
+            dropbox.style.border = "3px dashed #ccc";
+	    dropbox.style.opacity = "1";
+        }
+ 
+// init event handlers
+dropbox.addEventListener ("dragover", OnDragEnter, false);
+dropbox.addEventListener ("dragleave", OnDragLeave, false);
+dropbox.addEventListener ("drop", OnDrop, false);
+
+var drop = document.querySelector('#drop');
+
+
+function handleFiles(files) {
+  for (var i = 0; i <files.length; i++) {
+    var file = files[i];
+	var xhr = new XMLHttpRequest();
+		// start upload
+		xhr.open("POST", document.getElementById("upload").action + "?file=" + file.name, true);
+		xhr.setRequestHeader("X_FILENAME", file.name );
+		xhr.send(file);
+	}
+}
+
+  </script>
+
+
+<a id="html5badge" href="http://www.w3.org/html/logo/">
+<img src="./html5-badge.png" width="325" height="64" alt="HTML5 Powered with Connectivity / Realtime, Device Access, Graphics, 3D &amp; Effects, Multimedia, Performance &amp; Integration, Semantics, and Offline &amp; Storage" title="HTML5 Powered with Connectivity / Realtime, Device Access, Graphics, 3D &amp; Effects, Multimedia, Performance &amp; Integration, Semantics, and Offline &amp; Storage">
+</a>
+</section>
+
+</body></html>

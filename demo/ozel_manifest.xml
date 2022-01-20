@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<OzelManifest xsi:noNamespaceSchemaLocation="ozel.xsd" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <providers> 
+    <provider id='cLXcUQ=='> 
+      <name>Dankert</name>
+    </provider> 
+  </providers>
+   <objects> 
+    <object id="base642e"> 
+      <name>Dankert2</name>
+    </object> 
+  </objects>
+</OzelManifest>

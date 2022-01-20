@@ -1,0 +1,25 @@
+WARNING - fragile at best
+File are limited to less than 18K in size
+
+Demo process:  3 windows are needed
+
+-- setup uploader --
+Run a webserver, serving the files in the webpage directory
+
+In a browser open <your-ip>/index.html
+
+Any file dropped in the shredder is placed in the <webpage>/upload directory
+
+-- setup shredder --
+terminal window
+cd <demo>/shredding
+java -cp /home/ken/Dropbox/Ozel/demo/bin ozel.FileListener <webpage>/upload
+
+// the uploaded file is automatically shredded in 8 files and a ozel.manifest is created.
+the fragment nfile names are the MD5 hash of the fragment
+
+-- select fragments and rebuild --
+user deletes any 2  (6 of 8 is forced)
+java -cp /home/ken/Dropbox/Ozel/demo/bin ozel.Ozel -d ozel.manifest
+
+recreates the original file 

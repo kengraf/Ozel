@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<objects xsi:noNamespaceSchemaLocation="ozel.xsd" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+  <object> 
+    <id_err>Edwin</id_err> 
+    <name>Dankert</name>
+  </object> 
+</objects>

@@ -1,0 +1,2 @@
+java -cp /home/ken/Dropbox/Ozel/demo/bin ozel.Ozel -d ozel.manifest &
+

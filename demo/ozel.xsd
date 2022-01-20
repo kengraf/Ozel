@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="OzelManifest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="providers"/>
+        <xs:element ref="objects"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="providers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="provider"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="provider">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:NCName"/>
+      </xs:sequence>
+        <xs:attribute name="id" type="xs:base64Binary"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="objects">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="object"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="object">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:NCName"/>
+      </xs:sequence>
+        <xs:attribute name="id" type="xs:base64Binary"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
